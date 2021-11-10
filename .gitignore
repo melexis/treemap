@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# machine generated files
+__treemap_version__.py
+doc/_build/*
