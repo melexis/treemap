@@ -18,8 +18,6 @@ jobs:
         python -m pip install tox tox-gh-actions
         sudo apt-get update -y
         sudo apt-get install -y latexmk texlive-latex-extra
-    - name: Run test
-      run: tox -e py
     - name: Build documentation with different Sphinx versions
       run: tox -e sphinx3.0,sphinx-latest
     - name: Static checks
