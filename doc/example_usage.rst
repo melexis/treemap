@@ -8,5 +8,5 @@ Example Usage
 .. treemap:: custom pink
     :limits: 90 80 70 0
     :colors: lightgreen orange yellow darkred
-    :input: input/coverage_data.xml
+    :input: <<outdir>>/coverage_data.xml
 

@@ -126,7 +126,7 @@ class TreemapDirective(Directive):
         node['document'] = env.docname
         node.line = self.lineno
 
-        input_file_path = Path(self.options['input'])
+        input_file_path = Path(self.options['input'].replace('<<outdir>>', str(app.outdir)))
         if not input_file_path.exists():
             raise self.error(f'Could not find input file {input_file_path} to generate a treemap')
         else:
