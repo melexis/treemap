@@ -44,6 +44,7 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 
 html:
+	mkdir -p $(BUILDDIR)/html
 	cp -R input $(BUILDDIR)/html
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
