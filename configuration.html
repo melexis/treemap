@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration &mdash; Treemap 0.1.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/extra.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Example Usage" href="example_usage.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Treemap
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="readme.html">Sphinx Plugin for Treemap Generation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#custom-colors-for-coverage-percentages">Custom Colors for Coverage Percentages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#html-specific-configuration">HTML-Specific Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="example_usage.html">Example Usage</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Treemap</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="readme.html">Sphinx Plugin for Treemap Generation</a> &raquo;</li>
+      <li>Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/configuration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>The <em>conf.py</em> file contains the documentation configuration for your project. This file needs to be equipped in order
+to configure this Sphinx plugin.</p>
+<p>The plugin needs to be added to the list of <em>extensions</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">extensions</span> <span class="o">=</span> <span class="o">[</span>
+    <span class="s1">&#39;mlx.treemap&#39;</span>,
+<span class="o">]</span>
+</pre></div>
+</div>
+<section id="custom-colors-for-coverage-percentages">
+<h2>Custom Colors for Coverage Percentages<a class="headerlink" href="#custom-colors-for-coverage-percentages" title="Permalink to this headline">¶</a></h2>
+<p>The plugin allows customization of the colors for each range of coverage that you want to use. The key values shall be
+numbers that signify the lower limit (inclusive). The default values below can be overridden by defining a
+dictionary called <cite>treemap_limits</cite> in your <em>conf.py</em> file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">treemap_limits</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">90</span><span class="p">:</span> <span class="s1">&#39;#A7FC9D&#39;</span><span class="p">,</span>  <span class="c1"># green</span>
+    <span class="mi">75</span><span class="p">:</span> <span class="s1">&#39;#FFEA20&#39;</span><span class="p">,</span>  <span class="c1"># yellow</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span>  <span class="c1"># red</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="html-specific-configuration">
+<h2>HTML-Specific Configuration<a class="headerlink" href="#html-specific-configuration" title="Permalink to this headline">¶</a></h2>
+<p>You can choose to either embed the <a class="reference external" href="https://plotly.com/graphing-libraries/">plotly.js</a> graphing library for every treemap or to add it as a source file once
+by defining a boolean variable called <code class="docutils literal notranslate"><span class="pre">treemap_include_plotlyjs</span></code> in your <em>conf.py</em> file.
+This library is needed to render the interactive treemap.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the plotly.js library is embedded in each HTML elemenent generated for by a <code class="docutils literal notranslate"><span class="pre">treemap</span></code> directive.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">treemap_include_plotlyjs</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the plotly.js library shall be added to your documentation build in the <code class="docutils literal notranslate"><span class="pre">setup</span></code> function in your
+<em>conf.py</em>. You can find the latest CDN link <a class="reference external" href="https://plotly.com/javascript/getting-started/">here</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">treemap_include_plotlyjs</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_js_file</span><span class="p">(</span><span class="s1">&#39;https://cdn.plot.ly/plotly-2.4.2.min.js&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example_usage.html" class="btn btn-neutral float-right" title="Example Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Jasper Craeghs.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
