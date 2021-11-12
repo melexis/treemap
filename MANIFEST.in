@@ -1,0 +1,16 @@
+exclude MANIFEST.in
+exclude mlx/__treemap_version__.py
+exclude .pylintrc
+include tox.ini
+include LICENSE
+include *.md
+recursive-include doc *.xml
+recursive-include doc *.bat
+recursive-include doc *.py
+recursive-include doc *.rst
+recursive-include doc *.css
+recursive-include doc Makefile
+recursive-include tests *.py
+recursive-include tests *.rst
+recursive-include tests *.txt
+recursive-exclude doc/_build *

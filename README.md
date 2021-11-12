@@ -1,2 +1,3 @@
-# cobertura-treemap
-Generates a treemap from a Cobertura XML file
+# Sphinx Plugin for Treemap Generation
+
+Sphinx extension that generates a treemap from a Cobertura XML file.
