@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sphinx Plugin for Treemap Generation &mdash; Treemap 0.2.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Usage &mdash; Treemap 0.2.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/extra.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="Documentation of mlx.treemap" href="index.html" /> 
+    <link rel="next" title="Example Usage" href="example_usage.html" />
+    <link rel="prev" title="Configuration" href="configuration.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,10 +42,10 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx Plugin for Treemap Generation</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="readme.html">Sphinx Plugin for Treemap Generation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Usage</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="example_usage.html">Example Usage</a></li>
@@ -65,9 +65,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Sphinx Plugin for Treemap Generation</li>
+          <li><a href="readme.html">Sphinx Plugin for Treemap Generation</a> &raquo;</li>
+      <li>Usage</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/readme.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -75,28 +76,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="sphinx-plugin-for-treemap-generation">
-<h1>Sphinx Plugin for Treemap Generation<a class="headerlink" href="#sphinx-plugin-for-treemap-generation" title="Permalink to this headline">¶</a></h1>
-<p>Sphinx plugin that generates a <a class="reference external" href="https://en.wikipedia.org/wiki/Treemapping">treemap</a> that visualizes the data of an input <a class="reference external" href="https://cobertura.github.io/cobertura/">Cobertura</a> XML file.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#custom-colors-for-coverage-percentages">Custom Colors for Coverage Percentages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#html-specific-configuration">HTML-Specific Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-</ul>
+  <section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>A treemap can be generated using the <code class="docutils literal notranslate"><span class="pre">treemap</span></code> directive:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">treemap</span><span class="p">::</span> parent_name parent_color
+    <span class="nc">:input:</span> <span class="nt">&lt;&lt;outdir&gt;</span>&gt;/coverage_data.xml
+    <span class="nc">:limits:</span> 90 80 70 0
+    <span class="nc">:colors:</span> lightgreen orange yellow darkred
+</pre></div>
 </div>
+<dl class="field-list">
+<dt class="field-odd">parent_name</dt>
+<dd class="field-odd"><p>Mandatory name for the parent group.</p>
+</dd>
+<dt class="field-even">parent_color</dt>
+<dd class="field-even"><p><em>optional</em></p>
+<p>Optional color for the parent group, lightgrey by default.</p>
+</dd>
+<dt class="field-odd">input</dt>
+<dd class="field-odd"><p><em>single argument</em></p>
+<p>Path to the input file, relative to your documentation’s source directory.
+To make it relative to the output directory instead, use <code class="docutils literal notranslate"><span class="pre">&lt;&lt;outdir&gt;&gt;</span></code>
+at the start.</p>
+</dd>
+<dt class="field-even">limits</dt>
+<dd class="field-even"><p><em>optional</em>, <em>multiple arguments (space-separated)</em></p>
+<p>Limits (integers) to use for each range of limits. These are the lower limits and they are inclusive. The last
+value shall be 0 to avoid any issues.
+If this option is unused, the limits from <code class="docutils literal notranslate"><span class="pre">treemap_limits</span></code> will be used.</p>
+</dd>
+<dt class="field-odd">colors</dt>
+<dd class="field-odd"><p><em>optional</em>, <em>multiple arguments (space-separated)</em></p>
+<p>Colors to use for the groups.
+If this option is unused, the colors from <code class="docutils literal notranslate"><span class="pre">treemap_limits</span></code> will be used.
+Note that the number of arguments shall be the same as the number of limits.</p>
+</dd>
+</dl>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Documentation of mlx.treemap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="configuration.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example_usage.html" class="btn btn-neutral float-right" title="Example Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
