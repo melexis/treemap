@@ -44,6 +44,8 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 
 html:
+	mkdir -p $(BUILDDIR)/html
+	cp -R input $(BUILDDIR)/html
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
@@ -105,6 +107,8 @@ latex:
 	      "(use \`make latexpdf' here to do that automatically)."
 
 latexpdf:
+	mkdir -p $(BUILDDIR)/latex
+	cp -R input $(BUILDDIR)/latex
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex LATEXOPTS=$(LATEXOPTS) LATEXMKOPTS=$(LATEXMKOPTS) all-pdf

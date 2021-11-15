@@ -13,6 +13,7 @@ Sphinx plugin that generates a treemap_ that visualizes the data of an input Cob
 
     installation
     configuration
+    usage
 
 .. _treemap: https://en.wikipedia.org/wiki/Treemapping
 .. _Cobertura: https://cobertura.github.io/cobertura/
