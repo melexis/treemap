@@ -107,6 +107,8 @@ latex:
 	      "(use \`make latexpdf' here to do that automatically)."
 
 latexpdf:
+	mkdir -p $(BUILDDIR)/latex
+	cp -R input $(BUILDDIR)/latex
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex LATEXOPTS=$(LATEXOPTS) LATEXMKOPTS=$(LATEXMKOPTS) all-pdf
