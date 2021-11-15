@@ -22,7 +22,9 @@ A treemap can be generated using the ``treemap`` directive:
 
 :input: *single argument*
 
-    Path to the input file. The literal string ``<<outdir>>`` will be replaced by Sphinx' output directory.
+    Path to the input file, relative to your documentation's source directory.
+    To make it relative to the output directory instead, use ``<<outdir>>``
+    at the start.
 
 :limits: *optional*, *multiple arguments (space-separated)*
 
