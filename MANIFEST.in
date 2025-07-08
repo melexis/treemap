@@ -1,9 +1,12 @@
 exclude MANIFEST.in
 exclude mlx/__treemap_version__.py
 exclude .pylintrc
+exclude setup.py
+exclude setup.cfg
 include tox.ini
 include LICENSE
 include *.md
+include pyproject.toml
 recursive-include doc *.xml
 recursive-include doc *.bat
 recursive-include doc *.py
