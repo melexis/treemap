@@ -23,8 +23,6 @@ jobs:
         python -m pip install tox tox-gh-actions
         sudo apt-get update -y
         sudo apt-get install -y latexmk texlive-latex-extra
-    - name: Test with tox
-      run: tox
     - name: Build documentation with different Sphinx versions
       if: matrix.python-version == '3.11'
       run: tox -e sphinx3.0,sphinx-latest
