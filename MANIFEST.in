@@ -1,7 +1,6 @@
 exclude MANIFEST.in
-exclude mlx/__treemap_version__.py
+exclude mlx/*/_version.py
 exclude .pylintrc
-exclude setup.py
 exclude setup.cfg
 include tox.ini
 include LICENSE
