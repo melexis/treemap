@@ -52,21 +52,7 @@ class Treemap(nodes.raw):
             hash_value = sha256(str(all_data).encode()).hexdigest()  # create hash value based on graph parameters
             rel_file_path = Path('_images') / f'treemap-{hash_value}.png'
             if str(rel_file_path) not in env.images:
-                try:
-                    fig.write_image(str(Path(env.app.srcdir) / rel_file_path), scale=2)
-                except Exception as e:
-                    # If Chrome is not installed, try to install it and retry
-                    if "chrome" in str(e).lower() or "kaleido" in str(e).lower():
-                        # Use plotly_get_chrome command to install Chrome automatically
-                        import subprocess
-                        try:
-                            subprocess.run(["plotly_get_chrome", "-y"], check=True, capture_output=True)
-                            fig.write_image(str(Path(env.app.srcdir) / rel_file_path), scale=2)
-                        except subprocess.CalledProcessError:
-                            # If plotly_get_chrome fails, re-raise the original error
-                            raise e
-                    else:
-                        raise e
+                fig.write_image(str(Path(env.app.srcdir) / rel_file_path), scale=2)
                 env.images[str(rel_file_path)] = ['_images', rel_file_path.name]  # store file name in build env
             image_node = nodes.image()
             image_node['uri'] = str(rel_file_path)

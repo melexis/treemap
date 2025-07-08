@@ -40,7 +40,7 @@ requires-python = ">=3.9"
 dependencies = [
     "sphinx>=5.0",
     "plotly>=6.1.1",
-    "kaleido>=1.0.0,<2",
+    "kaleido<1",
     "pandas",
 ]
 
