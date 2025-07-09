@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "mlx.treemap"
 dynamic = ["version"]
 description = "Sphinx extension to generate a treemap of Cobertura data"
-readme = "README.md"
+readme = {file = "README.md", content-type = "text/markdown"}
 license = "Apache-2.0"
 authors = [
     {name = "Jasper Craeghs", email = "jce@melexis.com"},
