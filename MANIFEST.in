@@ -1,5 +1,6 @@
 exclude MANIFEST.in
 exclude mlx/*/_version.py
+exclude mlx/_*version__.py
 exclude .pylintrc
 exclude setup.cfg
 include tox.ini
