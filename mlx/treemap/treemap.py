@@ -1,9 +1,9 @@
-from mlx.__treemap_version__ import version
-from mlx.treemap_directive import Treemap, TreemapDirective
+from mlx.treemap._version import version
+from mlx.treemap.treemap_directive import Treemap, TreemapDirective
 
 
 def process_item_nodes(app, doctree, fromdocname):
-    """This function should be triggered upon ``doctree-resolved event``
+    """This function should be triggered upon ``doctree-resolved`` event.
 
     Replaces all Treemap nodes with a treemap visualization.
     """
@@ -12,7 +12,7 @@ def process_item_nodes(app, doctree, fromdocname):
 
 
 def setup(app):
-    """Extension setup"""
+    """Extension setup."""
     app.add_config_value(
         'treemap_limits',
         {

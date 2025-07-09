@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # machine generated files
-__treemap_version__.py
+mlx/*/_version.py
 doc/_build/*

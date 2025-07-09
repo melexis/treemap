@@ -17,14 +17,8 @@ import subprocess
 import sys
 from datetime import datetime
 
-from pkg_resources import get_distribution
+from importlib.metadata import version as pkg_version
 
-pkg_version = get_distribution('mlx.treemap').version
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.insert(0, os.path.abspath('../mlx'))
 
 # -- General configuration -----------------------------------------------------
 
@@ -58,7 +52,7 @@ copyright = f'{datetime.now().year}, Jasper Craeghs'
 # built documents.
 #
 # The short X.Y version.
-version = pkg_version
+version = pkg_version('mlx.treemap')
 # The full version, including alpha/beta/rc tags.
 release = version
 

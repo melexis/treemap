@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=77.0", "setuptools-scm>=8.0", "wheel>=0.41.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlx.treemap"
+dynamic = ["version"]
+description = "Sphinx extension to generate a treemap of Cobertura data"
+readme = {file = "README.md", content-type = "text/markdown"}
+license = "Apache-2.0"
+authors = [
+    {name = "Jasper Craeghs", email = "jce@melexis.com"},
+]
+keywords = [
+    "cobertura",
+    "treemap",
+    "test coverage",
+    "visualization",
+    "sphinx",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Environment :: Web Environment",
+    "Framework :: Sphinx :: Extension",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Documentation",
+    "Topic :: Documentation :: Sphinx",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "sphinx>=5.0",
+    "plotly>=5.24.1",
+    "kaleido>=0.2.1",
+    "pandas",
+]
+
+[project.urls]
+Homepage = "https://github.com/melexis/treemap"
+Repository = "https://github.com/melexis/treemap"
+"Bug Tracker" = "https://github.com/melexis/treemap/issues"
+
+[tool.setuptools]
+zip-safe = false
+include-package-data = true
+
+[tool.setuptools.packages.find]
+namespaces = true
+
+[tool.setuptools_scm]
+write_to = "mlx/treemap/_version.py"
+version_scheme = "no-guess-dev"
+
+[tool.pytest.ini_options]
+norecursedirs = ".tox"
+testpaths = ["tests"]
+
+[tool.flake8]
+exclude = [".git", "*conf.py", "build", "dist"]
+max-line-length = 120
+
+[tool.check-manifest]
+ignore = [
+    "mlx/treemap/_version.py",
+    ".pylintrc",
+]
