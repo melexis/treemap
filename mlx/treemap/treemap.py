@@ -32,4 +32,8 @@ def setup(app):
     app.add_directive('treemap', TreemapDirective)
     app.connect('doctree-resolved', process_item_nodes)
 
-    return {'version': version}
+    return {
+        'version': version,
+        'parallel_read_safe': True,
+        'parallel_write_safe': True,
+    }
